@@ -1,0 +1,119 @@
+.index {
+    margin: 0 auto;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    max-width: 768px;
+    color: #222;
+}
+label, .buttonLink{
+  cursor: pointer;
+}
+.fileList{
+  border: 6px solid;
+  border-radius: 6px;
+  margin: 15px 25px;
+  padding: 15px 20px;
+  text-transform: uppercase;
+  font-family: 'Montserrat', sans-serif;
+  transition: 0.4s ease-in-out;
+  color: black;
+  cursor: default;
+}
+.file, .button{
+  display: none;
+}
+a, .buttonLink{
+  border: 6px solid;
+  border-radius: 6px;
+  display: inline-block;
+  text-decoration: none;
+  text-transform: uppercase;
+  margin: 15px 25px;
+  padding: 15px 20px;
+  font-family: 'Montserrat', sans-serif;
+  color: black;
+}
+.link{
+ display: inline;
+}
+.indexH{
+  position: absolute;
+  left: 40.05%;
+  margin-left: -50px;
+  top: 50%;
+
+}
+ul{
+  list-style-type: none;
+}
+
+
+.dropZone {
+  display: flex;
+  top: 40%;
+  left: 36.25%;
+  cursor: pointer;
+  border: 6px solid;
+  border-radius: 6px;
+  display: inline-block;
+  text-decoration: none;
+  text-transform: uppercase;
+  margin: 15px 25px;
+  padding: 15px 20px;
+  font-family: 'Montserrat', sans-serif;
+  color: black;
+}
+
+.input {
+  display: none;
+}
+
+.result {
+  margin: 0;
+  padding: 0;
+}
+
+
+table {
+  font-family: 'Montserrat', Sans-Serif;
+  font-size: 14px;
+  background: white;
+  max-width: 100%;
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+th {
+  font-weight: normal;
+  color: black;
+  border-bottom: 2px solid #6678b1;
+  padding: 10px 8px;
+}
+td {
+  cursor: default;
+  color: black;
+  padding: 9px 8px;
+  transition: .3s linear;
+}
+tr:hover td {
+  color: blue;
+}
+td {
+  border-bottom: 1px solid #ccc;
+  color: black;
+  padding: 9px 8px;
+  transition: .3s linear;
+}
+
+th>div {
+  cursor: default;
+  display: inline-block;
+  justify-content: space-between;
+}
+
+.button:hover{
+  color: blue;
+}
