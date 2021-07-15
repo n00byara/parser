@@ -6,10 +6,18 @@ const sorting = require('./sendFile').sorting;
 const fs = require('fs');
 let path = require('path').resolve('./sendFile.js');
 path = path.slice(0, path.length - 11);
+const getUser = require(path + '/modules/authorization/mongoose').getUser;
 
 
-router.get('/', (req, res) =>{
-    sendFile('index.html', 'text/html', res);
+router.get('/', async (req, res) =>{
+    let func = (arg) =>{
+        if(arg){
+            sendFile('index.html', 'text/html', res);
+        } else{
+            res.end('login error');
+        }
+    }
+    getUser('admin').then(func); 
 });
 
 router.get('/downloads', (req, res) =>{

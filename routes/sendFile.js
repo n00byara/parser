@@ -19,17 +19,16 @@ exports.sendFile = sendFile;
 function sendFile(url, contentType, res){
     let file = path.join(pathFile + '/static/', url);
     fs.readFile(file, (err, content) =>{
-        if(err){
+      if(err){
           res.writeHead(404);
           res.end('file not found))');
-        }
-        else{
+      } else{
           res.writeHead(200, {'Content-Type' : contentType});
           res.write(content);
           res.end();
-        }
-    });
-  }
+      }
+  });
+}
 
 
 let sorting = () =>{
