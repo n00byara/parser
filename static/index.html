@@ -1,16 +1,15 @@
-<!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Node.js</title>
-    <meta charset="utf-8" />
-    <script type="text/javascript" src="./js/upload.js" defer></script>
-    <link rel="stylesheet" href="./css/style.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
 </head>
-<body class="index">
-  <form name="file">
-    <div><h3 class="dropZone indexH">загрузить учебный план</h3></div>
-    <input type="file" name="filedata" class="input"/>
-  </form>
-  <h3 class="indexH"><a href="/downloads">загруженные файлы</a></h3>
+<body>
+    <form action="/login" method="POST" enctype="application/x-www-form-urlencoded">
+        <input type="text" name="login"><label>логин</label>
+        <input type="password" name="password"><label>пароль</label>
+        <button type="submit">войти</button>
+    </form>
 </body>
-<html>
+</html>

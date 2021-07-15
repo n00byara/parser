@@ -8,11 +8,31 @@ let path = require('path').resolve('./sendFile.js');
 path = path.slice(0, path.length - 11);
 const getUser = require(path + '/modules/authorization/mongoose').getUser;
 
+router.get('/', (req, res) =>{
+    sendFile('index.html', 'text/html', res);
+});
 
-router.get('/', async (req, res) =>{
+router.post('/login', (req, res) =>{
+    getUser(req.body.login).then(getAcces);
+
+    function getAcces(user) {
+        if(user){
+            if(user.password == req.body.password){
+                sendFile('main.html', 'text/html', res);
+            } else{
+                res.end('bad pass');
+            }
+        } else{
+            res.end('bad loggin');
+        }
+    }
+    
+});
+
+router.get('/main', async (req, res) =>{
     let func = (arg) =>{
         if(arg){
-            sendFile('index.html', 'text/html', res);
+            sendFile('main.html', 'text/html', res);
         } else{
             res.end('login error');
         }

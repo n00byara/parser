@@ -8,12 +8,10 @@ async function getUser(login){
       useNewUrlParser: true,
       useFindAndModify: false,
     });
-    
-    let arr = await user.findOne({name: login});
+    console.log('логин в мангусе: ' + login);
+    let userData = await user.findOne({name: login});
     mongoose.connection.close();
-    return arr;
-    //if(arr) console.log(arr + '  true');
-    //console.log(arr + '   false')
+    return userData;
 }
 
 exports.getUser = getUser;
