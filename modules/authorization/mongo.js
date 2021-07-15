@@ -18,6 +18,6 @@ mongoClient.connect((err, client) =>{
     collection.find().toArray((err, result) =>{
         client.close();
         if(err) throw err;
-        console.log(result);      
+    
     });
 });
