@@ -5,6 +5,7 @@ const fs = require('fs');
 const http = require('http');
 const fileupload = require('express-fileupload');
 const multer = require('multer');
+const mongo = require('./modules/authorization/mongo');
 
 let app = express();
 app.set('port', 3000);
@@ -37,6 +38,13 @@ app.get('/', (req, res) =>{
 
 app.get('/downloads', (req, res) =>{
   sendFile('downloads.html', 'text/html', res);
+});
+
+const users = require('./modules/authorization/users');
+
+app.get('/users', (req, res) =>{
+  console.log(users.user());
+  res.end(users.user());
 });
 
 app.get('/downloadFiles', (req, res) =>{
