@@ -31,11 +31,6 @@ const storageConfig = multer.diskStorage({
 app.use(multer({storage:storageConfig}).array("filedata"));
 
 
-/*http.createServer(app).listen(app.get('port'), () =>{
-  console.log('server has been started');
-});*/
-
-
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
