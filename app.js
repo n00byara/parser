@@ -1,13 +1,9 @@
 
 const express = require('express');
 const path = require('path');
-const fs = require('fs');
-const http = require('http');
-const fileupload = require('express-fileupload');
 const multer = require('multer');
 
 const routes = require('./routes/routes');
-const mongoose = require('mongoose');
 
 let app = express();
 app.set('port', 3000);

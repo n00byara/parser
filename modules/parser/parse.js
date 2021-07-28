@@ -1,14 +1,9 @@
 const XLSX = require('xlsx');
-const fs = require('fs');
-const fileName = require('./files');
 let path = require('path');
 path = path.resolve('parse.js');
 
-let workbook = XLSX.readFile(path.slice(0, path.length - 16) + `\\parser\\uploads\\` + fileName),
-  sheet_name_list = workbook.Sheets,
-  listsMap = years(sheet_name_list).lists, //коллекция листов по годам
-  listKeys = years(sheet_name_list).keys,
-  dataMap = new Map();
+
+let dataMap = new Map();
 
 
 function years(sheet_name_list){
@@ -35,14 +30,19 @@ function add2Class(listsMap){  //добавляю каждый лист в ка�
     dataMap.set(i, list);
   }
 }
-add2Class(listsMap)
 
 
-let getDisciplines = () =>{
-   let dis = []; //массив дисциплин с их данными
-   let lists = [];
-   dataMap.forEach((value, key, map)=>{
-   dataMap.get(key).disMap.forEach((value1, key1, map1)=>{
+
+let getDisciplines = (fileName) =>{
+  let workbook = XLSX.readFile(path.slice(0, path.length - 16) + `\\parser\\uploads\\` + fileName),
+  sheet_name_list = workbook.Sheets,
+  listsMap = years(sheet_name_list).lists; //коллекция листов по годам
+  add2Class(listsMap);
+
+  let dis = []; //массив дисциплин с их данными
+  let lists = [];
+  dataMap.forEach((value, key, map)=>{
+  dataMap.get(key).disMap.forEach((value1, key1, map1)=>{
       dis.push(dataMap.get(key).sortBySemester(key1));
    });
   });
@@ -52,4 +52,4 @@ let getDisciplines = () =>{
   return {dis, lists};
 }
 
-exports.dis = getDisciplines;
+exports.getDisciplines = getDisciplines;

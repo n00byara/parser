@@ -13,9 +13,8 @@ let groups = () =>{
     functionsArray.push(
       function(callback){
         let fileName = files[i];
-        module.exports = fileName;
         const sort = require('./sort');
-        let groups = sort.groups;
+        let groups = sort.getGroups(fileName);
         delete require.cache[require.resolve('./sort')];
         callback(null, groups);
       }

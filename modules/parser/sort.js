@@ -1,7 +1,11 @@
 const parse = require('./parse');
 
-let dis = parse.dis().dis;
-delete require.cache[require.resolve('./parse.js')]
+let getGroups = (fileName) => {
+    let dis = parse.getDisciplines(fileName).dis;
+    delete require.cache[require.resolve('./parse.js')];
+    return findGroups(dis);
+};
+
 
 let findGroups = (dis) =>{
     let length = dis.length - 1;
@@ -27,5 +31,5 @@ let findGroups = (dis) =>{
 
 };
 
-let groups = findGroups(dis);
-exports.groups = groups;
+
+exports.getGroups = getGroups;
