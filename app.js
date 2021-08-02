@@ -1,11 +1,12 @@
 
-const express = require('express');
-const multer = require('multer');
-const fs = require('fs')
+const express = require('express'),
+  multer = require('multer'),
+  session = require('express-session'),
+  app = express();
 
 const routes = require('./routes/routes');
+const path = require('path');
 
-let app = express();
 app.set('port', 3000);
 
 
@@ -27,7 +28,7 @@ const storageConfig = multer.diskStorage({
 app.use(multer({storage:storageConfig}).array("filedata"));
 
 
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
 

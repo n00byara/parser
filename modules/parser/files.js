@@ -4,7 +4,7 @@ const fs = require('fs');
 const async = require('async');
 
 
-let groups = () =>{
+let getGroups = () =>{
   let disciplines;
   let functionsArray = [];
   console.log(path)
@@ -30,7 +30,7 @@ let groups = () =>{
   return disciplines;
 };
 
-module.exports = groups;
+module.exports = getGroups;
 
 
 

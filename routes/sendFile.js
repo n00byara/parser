@@ -31,10 +31,10 @@ function sendFile(url, contentType, res){
 }
 
 
-let sorting = () =>{
-  const sorting = require(pathFile + '/modules/parser/files');
-  let dis = sorting();
+let getTable = () =>{
+  const getTable = require(pathFile + '/modules/parser/files');
+  let dis = getTable();
   delete require.cache[require.resolve(pathFile + '/modules/parser/files')];
   return dis;
 };
-exports.sorting = sorting;
+exports.getTable = getTable;
