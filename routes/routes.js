@@ -4,10 +4,11 @@ const getContentType = require('./sendFile').getContentType;
 const sendFile = require('./sendFile').sendFile;
 const sorting = require('./sendFile').sorting;
 const fs = require('fs');
-let path = require('path').resolve('./sendFile.js');
-path = path.slice(0, path.length - 11);
+let path = require('path').resolve('./');
+path = path.slice(0, path.length);
 const getUser = require(path + '/modules/authorization/mongoose').getUser;
-
+//console.log(path + '/uploads')
+//console.log(fs.readFileSync(path + '/uploads/1.xls'))
 router.get('/', (req, res) =>{
     sendFile('main.html', 'text/html', res);
 });

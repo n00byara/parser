@@ -1,6 +1,6 @@
 const XLSX = require('xlsx');
 let path = require('path');
-path = path.resolve('parse.js');
+path = path.resolve('./');
 
 
 let dataMap = new Map();
@@ -34,7 +34,7 @@ function add2Class(listsMap){  //добавляю каждый лист в ка�
 
 
 let getDisciplines = (fileName) =>{
-  let workbook = XLSX.readFile(path.slice(0, path.length - 16) + `\\parser\\uploads\\` + fileName),
+  let workbook = XLSX.readFile(path.slice(0, path.length) + `/uploads/` + fileName),
   sheet_name_list = workbook.Sheets,
   listsMap = years(sheet_name_list).lists; //коллекция листов по годам
   add2Class(listsMap);

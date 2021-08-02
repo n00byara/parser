@@ -1,5 +1,5 @@
 let path = require('path');
-path = path.resolve('./modules/files.js');
+path = path.resolve('./');
 const fs = require('fs');
 const async = require('async');
 
@@ -7,7 +7,8 @@ const async = require('async');
 let groups = () =>{
   let disciplines;
   let functionsArray = [];
-  let files = JSON.parse(fs.readFileSync(path.slice(0, path.length - 16) + '\\files\\files.txt', 'utf8'));
+  console.log(path)
+  let files = JSON.parse(fs.readFileSync(path.slice(0, path.length) + '/files/files.txt', 'utf8'))
 
   for(let i = 0; i < files.length; i++){
     functionsArray.push(

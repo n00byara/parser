@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
-let pathFile = path.resolve('./sendFile.js');
-pathFile = pathFile.slice(0, pathFile.length - 11);
+let pathFile = path.resolve('./');
+pathFile = pathFile.slice(0, pathFile.length);
 
 exports.getContentType = getContentType;
 function getContentType(url){
