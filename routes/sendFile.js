@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 let pathFile = path.resolve('./');
-pathFile = pathFile.slice(0, pathFile.length);
+
 
 exports.getContentType = getContentType;
 function getContentType(url){
@@ -17,7 +17,7 @@ function getContentType(url){
 
 exports.sendFile = sendFile;
 function sendFile(url, contentType, res){
-    let file = path.join(pathFile + '/static/', url);
+  let file = path.join(pathFile + '/static/', url)
     fs.readFile(file, (err, content) =>{
       if(err){
           res.writeHead(404);
@@ -32,9 +32,9 @@ function sendFile(url, contentType, res){
 
 
 let getTable = () =>{
-  const getTable = require(pathFile + '/modules/parser/files');
+  const getTable = require('../modules/parser/files');
   let dis = getTable();
-  delete require.cache[require.resolve(pathFile + '/modules/parser/files')];
+  delete require.cache[require.resolve('../modules/parser/files')];
   return dis;
 };
 exports.getTable = getTable;

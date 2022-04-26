@@ -52,6 +52,28 @@ let findSemesters = (obj) =>{
 }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 document.addEventListener('DOMContentLoaded', () => {
 
     const getSort = ({ target }) => {
